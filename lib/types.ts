@@ -18,6 +18,14 @@ export interface Budget {
   createdAt: number
 }
 
+export interface WeeklyBudget {
+  id: string
+  weekdayBudget: number // Budget for Mon-Fri (food + groceries only)
+  weekendBudget: number // Budget for Sat-Sun (food + groceries only)
+  month: string // Format: "YYYY-MM"
+  createdAt: number
+}
+
 export const EXPENSE_CATEGORIES: { value: ExpenseCategory; label: string; icon: string }[] = [
   { value: 'travel', label: 'Travel', icon: '✈️' },
   { value: 'food', label: 'Food', icon: '🍕' },

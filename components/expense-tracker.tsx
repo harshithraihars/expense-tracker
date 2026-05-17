@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useExpenses } from '@/hooks/use-expenses'
 import { AddExpenseDialog } from '@/components/add-expense-dialog'
 import { SetBudgetDialog } from '@/components/set-budget-dialog'
@@ -7,6 +8,7 @@ import { BudgetOverview } from '@/components/budget-overview'
 import { ExpenseKanban } from '@/components/expense-kanban'
 import { ExpenseSummary } from '@/components/expense-summary'
 import { Spinner } from '@/components/ui/spinner'
+import { Button } from '@/components/ui/button'
 import { Receipt, Calendar } from 'lucide-react'
 
 export function ExpenseTracker() {
@@ -75,6 +77,12 @@ export function ExpenseTracker() {
           </p>
         </div>
         <div className="flex items-center gap-2">
+          <Link href="/calendar">
+            <Button variant="outline" className="gap-2">
+              <Calendar className="h-4 w-4" />
+              Budget Calendar
+            </Button>
+          </Link>
           <SetBudgetDialog budget={budget} onSetBudget={setBudgetValues} />
           <AddExpenseDialog onAddExpense={addExpense} />
         </div>
